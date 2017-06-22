@@ -1,9 +1,15 @@
 # ZNC on OpenShift
 
-Switch to a project:
+Create a new project:
 
 ```bash
-oc project mystuff
+oc new-project znc
+```
+
+Or switch to an existing one:
+
+```bash
+oc project znc
 ```
 
 Create the ZNC app and all its supporting resources:

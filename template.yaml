@@ -15,7 +15,7 @@ parameters:
 
 - name: IMAGE
   description: The ZNC Docker image to use.
-  value: ironcladlou/znc:slim
+  value: jasonmadigan/znc-docker:latest
 
 - name: IMAGE_PULL_POLICY
   description: How to handle updates to the image.
@@ -50,7 +50,7 @@ objects:
     port:
       targetPort: znc
     tls:
-      termination: passthrough
+      termination: edge
     to:
       kind: Service
       name: ${NAME}
@@ -97,14 +97,14 @@ objects:
             httpGet:
               path: /
               port: 8080
-              scheme: HTTPS
+              scheme: HTTP
             initialDelaySeconds: 3
             periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /
               port: 8080
-              scheme: HTTPS
+              scheme: HTTP
             initialDelaySeconds: 3
             periodSeconds: 5
           volumeMounts:
