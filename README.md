@@ -6,16 +6,16 @@ Create a new project:
 oc new-project znc
 ```
 
-Or switch to an existing one:
+OR switch to an existing one:
 
 ```bash
 oc project znc
 ```
 
-Create the ZNC app and all its supporting resources:
+Next, create the ZNC app and all its supporting resources:
 
 ```bash
-oc new-app -f template.yaml
+oc new-app -f znc-template.yaml
 ```
 
 Find the public route for your new app:
@@ -25,3 +25,18 @@ oc get route/znc
 ```
 
 Open the ZNC web console at your route's URL, e.g. `https://znc-myapp.openshift.example.com`. Log in with the default admin account (username/password: `admin`).
+
+
+## Install thelounge
+
+https://thelounge.github.io/
+
+```bash
+oc new-app -f thelounge-template.yaml
+```
+
+Find the public route for thelounge:
+
+```bash
+oc get route/thelounge
+```
